@@ -6,8 +6,20 @@
   </head>
   <body>
 
+    <form name="form" action="" method="get">
+        Name: <input id="name" name="name" type="text"/><br>
+        E-mail: <input id="mail" name="mail" type="text"/><br>
+        <input type="submit" value="Done"/>
+    </form>
+
+
     <?php
-    echo "Hello World!";
+        $myfile = fopen("loginData.txt", "a");
+        $txt = "Login name : ".$_GET["name"]."\r\n".
+               "E-mail : ".$_GET["mail"]."\r\n";
+        fwrite($myfile, $txt);
+        fclose($myfile);
+        // echo "Your data has been saved in a text file!";
     ?>
 
   </body>
